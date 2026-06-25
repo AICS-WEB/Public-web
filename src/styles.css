@@ -220,6 +220,15 @@ button {
   padding-left: 34px;
 }
 
+@keyframes slideDownImage {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
 .hero {
   position: relative;
   min-height: 700px;
@@ -239,6 +248,8 @@ button {
 .hero img {
   object-fit: cover;
   object-position: 50% 0;
+  animation: slideDownImage 0.8s ease-out forwards;
+  border-radius: 0 0 24px 24px;
 }
 
 .hero-content {
