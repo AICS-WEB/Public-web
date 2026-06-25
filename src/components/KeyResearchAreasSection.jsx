@@ -3,7 +3,7 @@ import { features } from "../data/siteContent.js";
 function ResearchAreaCard({ area }) {
   return (
     <article className="insight-card">
-      <div className="insight-card-shell">
+      <a href={area.href} target="_blank" rel="noopener noreferrer">
         <div className="insight-image" style={{ backgroundImage: `url(${area.image})` }} />
         <div className="insight-copy">
           <h3>
@@ -12,7 +12,7 @@ function ResearchAreaCard({ area }) {
           </h3>
           <p>{area.text}</p>
         </div>
-      </div>
+      </a>
     </article>
   );
 }

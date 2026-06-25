@@ -50,10 +50,14 @@ export default function Header() {
       const titleScale = parseFloat(titleStyle.fontSize) / 18;
       const top = titleCenterY + (headerCenterY - titleCenterY) * progress;
       const scale = titleScale + (1 - titleScale) * progress;
+      const brandGray = Math.round(255 * (1 - progress));
+      const brandTextColor = `rgb(${brandGray}, ${brandGray}, ${brandGray})`;
 
       root.style.setProperty("--brand-progress", progress.toFixed(3));
       root.style.setProperty("--brand-top", `${top.toFixed(2)}px`);
       root.style.setProperty("--brand-scale", scale.toFixed(3));
+      root.style.setProperty("--brand-bg-opacity", progress.toFixed(3));
+      root.style.setProperty("--brand-color", brandTextColor);
     };
 
     const requestUpdate = () => {

@@ -8,7 +8,7 @@ import ForestSection from "./components/ForestSection.jsx";
 import HaruSection from "./components/HaruSection.jsx";
 import CtaSection from "./components/CtaSection.jsx";
 import Footer from "./components/Footer.jsx";
-import { features } from "./data/siteContent.js";
+import { featureHighlights, features } from "./data/siteContent.js";
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
         <Hero />
         <InsightSection />
         <AboutSection />
-        {features.map((feature) => (
+        {featureHighlights.map((feature) => (
           <FeatureSection key={feature.title} feature={feature} />
         ))}
         <KeyResearchAreasSection />

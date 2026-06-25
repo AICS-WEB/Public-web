@@ -23,7 +23,7 @@ export const labLocation = {
   title: "연구실 위치",
   address: labAddress,
   mapSrc: `https://www.google.com/maps?q=${encodedLabAddress}&output=embed`,
-  mapHref: `https://www.google.com/maps/search/?api=1&query=${encodedLabAddress}`,
+  mapHref: "https://www.google.com/maps/search/?api=1&query=%EC%B6%A9%EB%82%A8%20%EC%95%84%EC%82%B0%EC%8B%9C%20%EC%88%9C%EC%B2%9C%ED%96%A5%EB%A1%9C%2022-11%20%EB%A9%80%ED%8B%B0%EB%AF%B8%EB%94%94%EC%96%B4%205%EC%B8%B5%20509%ED%98%B8",
   details: [
     { label: "주소", value: labAddress },
     { label: "건물/호실", value: "멀티미디어관 5층 509호" },
@@ -69,9 +69,9 @@ const researchImages = [
   "https://lh3.googleusercontent.com/sitesv/AA5AbUDlaipb5CFvzPjfu4s3Xx6dDIiGhX2qLIKM216dswF8sX10uAbQ-yoHcXLMcVRcJDXdBo--n6JW8wmZy5QWU3eK59W0AHd_g3JiA1rYZkG1oyZCp7FB9WfOt_4X67uOdS0yyHxYMqiJlOn4YYw0Y6O5flbr83lSJ9yDHSM3dtAuanm-76YdFVTpbIo06-E-M6dWTH69enjB47oFxhFGjS3RNoh3QtddgwmnsU6BwsA=w1280",
 ];
 
-export const features = [
+export const featureHighlights = [
   {
-    title: "Financial Time-Series Analysis & Prediction",
+    title: "Financial Time-Series Analysis & Prediction.",
     text: "금융 시계열 데이터의 패턴을 분석하고,\n예측 모델을 통해 의사결정에 필요한 인사이트를 연구합니다.",
     href: "#",
     image: researchImages[0],
@@ -79,7 +79,7 @@ export const features = [
     align: "right",
   },
   {
-    title: "Visual Information Processing & AI Applications",
+    title: "Visual Information Processing & AI Applications.",
     text: "시각 정보를 이해하고 처리하는 AI 기술을 바탕으로\n현실 문제에 적용 가능한 지능형 응용 시스템을 연구합니다.",
     href: "#",
     image: researchImages[1],
@@ -87,12 +87,47 @@ export const features = [
     align: "left",
   },
   {
-    title: "Accessibility & Explainable AI",
+    title: "Accessibility & Explainable AI.",
     text: "모두가 접근 가능한 AI와 설명 가능한 모델을 통해\n사용자가 신뢰할 수 있는 인공지능 기술을 연구합니다.",
     href: "#",
     image: researchImages[2],
     mobileImage: researchImages[2],
     align: "right",
+  },
+];
+
+export const features = [
+  {
+    title: "Enhancing stock market trend reversal prediction using feature-enriched neural networks.",
+    text: "Feature-enriched neural networks for precise stock trend reversal prediction.",
+    href: "https://www.cell.com/heliyon/fulltext/S2405-8440%2824%2900167-1",
+    image: researchImages[0],
+    mobileImage: researchImages[0],
+    align: "right",
+  },
+  {
+    title: "A Real-Time Chart Explanation System for Visually Impaired Individuals.",
+    text: "A real-time chart explanation system designed for accessibility and clarity.",
+    href: "https://link.springer.com/chapter/10.1007/978-3-031-62846-7_37",
+    image: researchImages[1],
+    mobileImage: researchImages[1],
+    align: "left",
+  },
+  {
+    title: "Implementing and Evaluating a Font Recommendation System Through Emotion-Based Content-Font Mapping.",
+    text: "Emotion-based content-font mapping for smarter font recommendation systems.",
+    href: "https://www.mdpi.com/2076-3417/14/3/1123",
+    image: researchImages[2],
+    mobileImage: researchImages[2],
+    align: "right",
+  },
+  {
+    title: "SymbolNet: Bridging Latent Neural Representations and Symbolic Reasoning via Intermediate Feature Interpretation.",
+    text: "Bridging latent neural representations and symbolic reasoning through feature interpretation.",
+    href: "https://ieeexplore.ieee.org/abstract/document/10980088",
+    image: researchImages[0],
+    mobileImage: researchImages[0],
+    align: "left",
   },
 ];
 
