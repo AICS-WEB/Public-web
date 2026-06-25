@@ -1,6 +1,5 @@
-# Public-web
+# AICS Public-web
 
-AICS Public-web
 
 ## 실행
 
