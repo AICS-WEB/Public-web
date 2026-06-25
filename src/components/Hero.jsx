@@ -3,10 +3,12 @@ import { assets } from "../data/siteContent.js";
 export default function Hero() {
   return (
     <section className="hero">
-      <picture>
-        <source media="(max-width: 767px)" srcSet={assets.heroMobile} />
-        <img src={assets.heroDesktop} alt="" />
-      </picture>
+      <div className="hero-media" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 767px)" srcSet={assets.heroMobile} />
+          <img src={assets.heroDesktop} alt="" />
+        </picture>
+      </div>
       <div className="hero-content desktop-only">
         <h1 className="hero-title-desktop">A   I   C   S</h1>
         <i aria-hidden="true" />
