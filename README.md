@@ -1,5 +1,3 @@
-![](public/Logo/AI%20CS%20LAB%20로고%20-%20정방형%20흰글씨%20배경제거.png)
-
 # AICS Public Web
 
 간단한 소개
