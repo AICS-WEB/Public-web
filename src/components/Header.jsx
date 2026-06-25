@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
-import { navigation } from "../data/siteContent.js";
+import { pageNavigation } from "../data/pages.js";
 
 function MenuTree({ items, onNavigate }) {
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+
   return (
     <ul className="menu-tree">
-      {items.map((item) => (
-        <li key={item.label}>
-          <a href={item.href} onClick={onNavigate}>
-            {item.label}
-          </a>
-          {item.children ? <MenuTree items={item.children} onNavigate={onNavigate} /> : null}
-        </li>
-      ))}
+      {items.map((item) => {
+        const itemPath = item.href.replace(/\/+$/, "") || "/";
+        const isActive = currentPath === itemPath;
+
+        return (
+          <li key={item.label}>
+            <a href={item.href} onClick={onNavigate} aria-current={isActive ? "page" : undefined}>
+              {item.label}
+            </a>
+            {item.children ? <MenuTree items={item.children} onNavigate={onNavigate} /> : null}
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -30,6 +37,8 @@ export default function Header() {
         root.style.removeProperty("--brand-progress");
         root.style.removeProperty("--brand-top");
         root.style.removeProperty("--brand-scale");
+        root.style.removeProperty("--hero-media-y");
+        root.style.removeProperty("--hero-media-scale");
         return;
       }
 
@@ -37,6 +46,10 @@ export default function Header() {
       const header = document.querySelector(".site-header");
 
       if (!heroTitle || !header) {
+        root.style.setProperty("--brand-top", "38px");
+        root.style.setProperty("--brand-scale", "1");
+        root.style.setProperty("--brand-bg-opacity", "1");
+        root.style.setProperty("--brand-color", "rgb(36, 36, 36)");
         return;
       }
 
@@ -45,19 +58,23 @@ export default function Header() {
       const titleStyle = window.getComputedStyle(heroTitle);
       const titleCenterY = titleRect.top + titleRect.height / 2;
       const headerCenterY = headerRect.top + headerRect.height / 2;
-      const progressDistance = Math.min(window.innerHeight * 0.42, 360);
+      const progressDistance = Math.min(window.innerHeight * 0.72, 620);
       const progress = Math.min(Math.max(window.scrollY / progressDistance, 0), 1);
       const titleScale = parseFloat(titleStyle.fontSize) / 18;
       const top = titleCenterY + (headerCenterY - titleCenterY) * progress;
       const scale = titleScale + (1 - titleScale) * progress;
       const brandGray = Math.round(255 * (1 - progress));
       const brandTextColor = `rgb(${brandGray}, ${brandGray}, ${brandGray})`;
+      const mediaY = -progress * Math.min(window.innerHeight * 0.32, 280);
+      const mediaScale = 1 - progress * 0.36;
 
       root.style.setProperty("--brand-progress", progress.toFixed(3));
       root.style.setProperty("--brand-top", `${top.toFixed(2)}px`);
       root.style.setProperty("--brand-scale", scale.toFixed(3));
       root.style.setProperty("--brand-bg-opacity", progress.toFixed(3));
       root.style.setProperty("--brand-color", brandTextColor);
+      root.style.setProperty("--hero-media-y", `${mediaY.toFixed(2)}px`);
+      root.style.setProperty("--hero-media-scale", mediaScale.toFixed(3));
     };
 
     const requestUpdate = () => {
@@ -79,6 +96,8 @@ export default function Header() {
       root.style.removeProperty("--brand-progress");
       root.style.removeProperty("--brand-top");
       root.style.removeProperty("--brand-scale");
+      root.style.removeProperty("--hero-media-y");
+      root.style.removeProperty("--hero-media-scale");
     };
   }, []);
 
@@ -97,7 +116,7 @@ export default function Header() {
           <span />
           <b>MENU</b>
         </button>
-        <a className="brand" href="https://www.mujinassociates.com/">
+        <a className="brand" href="/">
           A   I   C   S
         </a>
         {/* <div className="header-logo">
@@ -112,7 +131,7 @@ export default function Header() {
           aria-label="메뉴 닫기"
           onClick={() => setOpen(false)}
         />
-        <MenuTree items={navigation} onNavigate={() => setOpen(false)} />
+        <MenuTree items={pageNavigation} onNavigate={() => setOpen(false)} />
       </div>
       {open ? <button className="menu-backdrop" aria-label="메뉴 닫기" onClick={() => setOpen(false)} /> : null}
     </>
