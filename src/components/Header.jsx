@@ -25,6 +25,68 @@ function MenuTree({ items, onNavigate }) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [overMobileHero, setOverMobileHero] = useState(() => {
+    const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+    return window.innerWidth < 768 && currentPath === "/";
+  });
+
+  useEffect(() => {
+    if (!open) {
+      return undefined;
+    }
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
+
+  useEffect(() => {
+    let frame = 0;
+
+    const updateMobileHeader = () => {
+      frame = 0;
+
+      if (window.innerWidth >= 768) {
+        setOverMobileHero(false);
+        return;
+      }
+
+      const heroContent = document.querySelector(".hero-content.mobile-only");
+      const header = document.querySelector(".site-header");
+
+      if (!heroContent || !header) {
+        setOverMobileHero(false);
+        return;
+      }
+
+      const heroRect = heroContent.getBoundingClientRect();
+      const headerRect = header.getBoundingClientRect();
+      setOverMobileHero(heroRect.bottom > headerRect.bottom);
+    };
+
+    const requestUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateMobileHeader);
+      }
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -37,6 +99,8 @@ export default function Header() {
         root.style.removeProperty("--brand-progress");
         root.style.removeProperty("--brand-top");
         root.style.removeProperty("--brand-scale");
+        root.style.removeProperty("--brand-bg-opacity");
+        root.style.removeProperty("--brand-color");
         root.style.removeProperty("--hero-media-y");
         root.style.removeProperty("--hero-media-scale");
         return;
@@ -96,6 +160,8 @@ export default function Header() {
       root.style.removeProperty("--brand-progress");
       root.style.removeProperty("--brand-top");
       root.style.removeProperty("--brand-scale");
+      root.style.removeProperty("--brand-bg-opacity");
+      root.style.removeProperty("--brand-color");
       root.style.removeProperty("--hero-media-y");
       root.style.removeProperty("--hero-media-scale");
     };
@@ -103,13 +169,14 @@ export default function Header() {
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${open ? "menu-open" : ""} ${overMobileHero ? "is-over-mobile-hero" : ""}`}>
         <button
-          className="menu-button"
+          className={`menu-button ${open ? "is-open" : ""}`}
           type="button"
-          aria-label="메뉴 열기"
+          aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
-          onClick={() => setOpen(true)}
+          aria-controls="header-primary-menu"
+          onClick={() => setOpen((current) => !current)}
         >
           <span />
           <span />
@@ -119,21 +186,18 @@ export default function Header() {
         <a className="brand" href="/">
           A   I   C   S
         </a>
+        <nav
+          id="header-primary-menu"
+          className={`header-menu ${open ? "is-open" : ""}`}
+          aria-label="주요 메뉴"
+          aria-hidden={!open}
+        >
+          <MenuTree items={pageNavigation} onNavigate={() => setOpen(false)} />
+        </nav>
         {/* <div className="header-logo">
           <img src="/Logo/sch_Logo.png?v=1" alt="순천향대학교" />
         </div> */}
       </header>
-
-      <div className={`slide-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
-        <button
-          className="close-button"
-          type="button"
-          aria-label="메뉴 닫기"
-          onClick={() => setOpen(false)}
-        />
-        <MenuTree items={pageNavigation} onNavigate={() => setOpen(false)} />
-      </div>
-      {open ? <button className="menu-backdrop" aria-label="메뉴 닫기" onClick={() => setOpen(false)} /> : null}
     </>
   );
 }
