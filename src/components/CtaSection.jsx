@@ -60,7 +60,7 @@ export default function CtaSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/donga univ.jpg" alt="Donga University" />
+              <img src="/Univ/donga univ.jpg" alt="Donga University" />
               <span>Computer Vision and Pattern Recognition Laboratory</span>
             </a>
           </li>
@@ -70,7 +70,7 @@ export default function CtaSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/semyung univ.png" alt="Semyung University" />
+              <img src="/Univ/semyung univ.png" alt="Semyung University" />
               <span>
                 Intelligent Communication, Information and Control Systems
                 (IC2S) Lab
@@ -84,7 +84,7 @@ export default function CtaSection() {
               rel="noopener noreferrer"
             >
               <img
-                src="/sookmyung univ.png"
+                src="/Univ/sookmyung univ.png"
                 alt="Sookmyung Women's University"
               />
               <span>Smart System Software Lab</span>
@@ -97,7 +97,7 @@ export default function CtaSection() {
               rel="noopener noreferrer"
             >
               <img
-                src="/sookmyung univ.png"
+                src="/Univ/sookmyung univ.png"
                 alt="Sookmyung Women's University"
               />
               <span>ICT Convergence Research Institute</span>

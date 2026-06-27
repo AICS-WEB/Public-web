@@ -5,23 +5,13 @@ import AboutSection from "./components/AboutSection.jsx";
 import FeatureSection from "./components/FeatureSection.jsx";
 import KeyResearchAreasSection from "./components/KeyResearchAreasSection.jsx";
 import ForestSection from "./components/ForestSection.jsx";
-import HaruSection from "./components/HaruSection.jsx";
 import CtaSection from "./components/CtaSection.jsx";
 import Footer from "./components/Footer.jsx";
 import LabPage from "./components/LabPage.jsx";
 import CustomScrollbar from "./components/CustomScrollbar.jsx";
-import SectionNav from "./components/SectionNav.jsx";
+import HomeRailNav from "./components/HomeRailNav.jsx";
 import { featureHighlights } from "./data/siteContent.js";
 import { pages } from "./data/pages.js";
-
-const homeSectionNav = [
-  { label: "Home", href: "#home" },
-  { label: "Insight", href: "#insight" },
-  { label: "About", href: "#about" },
-  { label: "Areas", href: "#areas" },
-  { label: "Research", href: "#research" },
-  { label: "Location", href: "#location" },
-];
 
 function HomePage() {
   return (
@@ -46,11 +36,8 @@ function HomePage() {
       <div id="location">
         <ForestSection />
       </div>
-      <HaruSection />
       <CtaSection />
-      <div className="page-section-nav-wrap">
-        <SectionNav title="Home" items={homeSectionNav} />
-      </div>
+      <HomeRailNav />
     </main>
   );
 }

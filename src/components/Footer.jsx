@@ -13,6 +13,10 @@ export default function Footer() {
           </p>
           <p className="copyright">Copyright © AICS Lab. All Rights Reserved.</p>
         </div>
+        <div className="footer-logos">
+          <img src="/Logo/aics-favicon.png" alt="AICS Lab" />
+          <img src="/Logo/sch_Logo.png" alt="Soonchunhyang University" />
+        </div>
       </div>
     </footer>
   );

@@ -16,7 +16,7 @@ export default function ForestSection() {
       <div className="inside location-header">
         <h2>{labLocation.title}</h2>
         <ButtonLink href={labLocation.mapHref} target="_blank">
-          길찾기
+          Get Directions
         </ButtonLink>
       </div>
 
@@ -24,7 +24,7 @@ export default function ForestSection() {
         <div className="location-map-wrap">
           <iframe
             className="location-map"
-            title="AICS 연구실 위치 지도"
+            title="AICS Lab Location Map"
             src={labLocation.mapSrc}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

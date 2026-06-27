@@ -11,16 +11,13 @@ export const assets = {
   hrMobileImage: `${cdn}/20241224/8823c6e57d6cc.png`,
   mindfulnessImage: `${cdn}/20250106/f01f3c88a64e4.jpg`,
   mindfulnessMobileImage: `${cdn}/20241224/425a9540d32ae.png`,
-  haruDevice: `${cdn}/20241223/fd84ee1785027.png`,
-  haruLogo: `${cdn}/20241223/a2cc25a09d1e4.png`,
-  haruMobileLogo: `${cdn}/20241224/a41a89eb8e310.png`,
 };
 
 const labAddress = "충남 아산시 순천향로 22-11 멀티미디어 5층 509호";
 const encodedLabAddress = encodeURIComponent(labAddress);
 
 export const labLocation = {
-  title: "연구실 위치",
+  title: "Lab Location",
   address: labAddress,
   mapSrc: `https://www.google.com/maps?q=${encodedLabAddress}&output=embed`,
   mapHref: "https://www.google.com/maps/search/?api=1&query=%EC%B6%A9%EB%82%A8%20%EC%95%84%EC%82%B0%EC%8B%9C%20%EC%88%9C%EC%B2%9C%ED%96%A5%EB%A1%9C%2022-11%20%EB%A9%80%ED%8B%B0%EB%AF%B8%EB%94%94%EC%96%B4%205%EC%B8%B5%20509%ED%98%B8",

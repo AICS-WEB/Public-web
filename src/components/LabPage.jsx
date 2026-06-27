@@ -1,6 +1,3 @@
-import ButtonLink from "./ButtonLink.jsx";
-import SectionNav from "./SectionNav.jsx";
-
 function PageHero({ page }) {
   return (
     <section className="lab-page-hero">
@@ -235,15 +232,6 @@ export default function LabPage({ page }) {
   return (
     <main className={`lab-page lab-page-${page.type}`}>
       <PageBody page={page} />
-      <div className="page-section-nav-wrap">
-        <SectionNav title={page.title} items={page.nav} />
-      </div>
-      <section className="lab-page-cta">
-        <div className="inside lab-page-cta-inner">
-          <h2>Artificial Intelligence Convergence Software</h2>
-          <ButtonLink href="/">Back to home</ButtonLink>
-        </div>
-      </section>
     </main>
   );
 }

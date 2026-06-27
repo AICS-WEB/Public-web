@@ -788,11 +788,6 @@ button {
   white-space: pre-line;
 }
 
-.haru-section {
-  padding: 80px 0;
-  background: var(--soft);
-}
-
 .lab-page {
   padding-top: 76px;
   padding-bottom: 92px;
@@ -986,30 +981,6 @@ button {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.65;
-}
-
-.lab-page-cta {
-  padding: 78px 0;
-  background: var(--dark);
-  color: #fff;
-}
-
-.lab-page-cta-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-
-.lab-page-cta h2 {
-  margin: 0;
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.1;
-  font-weight: 800;
-}
-
-.lab-page-cta .button-link {
-  color: #fff;
 }
 
 .profile-detail-grid {
@@ -1389,112 +1360,6 @@ button {
   line-height: 1.6;
 }
 
-.page-section-nav-wrap {
-  position: fixed;
-  bottom: 18px;
-  left: 50%;
-  z-index: 20;
-  width: auto;
-  max-width: calc(100vw - 24px);
-  margin: 0;
-  pointer-events: none;
-  transform: translateX(-50%);
-}
-
-.page-section-nav {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  max-width: 100%;
-  padding: 5px;
-  border-radius: 8px;
-  background: #333;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(8px);
-  transition: opacity 0.24s ease, transform 0.24s ease;
-}
-
-.page-section-nav.is-visible {
-  opacity: 0.68;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.page-section-nav:hover,
-.page-section-nav:focus-within {
-  opacity: 1;
-}
-
-.page-section-nav-logo {
-  width: 26px;
-  height: 26px;
-  margin: 0 4px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-.page-section-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.page-section-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 5px;
-  color: rgba(255, 255, 255, 0.72);
-  background: #000;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 1;
-  white-space: nowrap;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-}
-
-.page-section-nav a:hover,
-.page-section-nav a:focus-visible {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-.page-section-nav a.is-active {
-  color: #fff;
-  background: #000;
-  border-color: #5f788b;
-}
-
-.haru-grid {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.haru-device {
-  height: 432px;
-  margin: 0 auto;
-  object-fit: contain;
-}
-
-.haru-copy img {
-  width: 240px;
-  margin-bottom: 30px;
-}
-
-.haru-copy p {
-  margin: 0 0 24px;
-  color: var(--text);
-  font-size: 18px;
-  line-height: 1.8;
-}
-
 .cta-section {
   max-width: var(--max);
   margin: 0 auto;
@@ -1555,6 +1420,73 @@ button {
   white-space: nowrap;
 }
 
+.home-rail-nav {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  z-index: 18;
+  display: grid;
+  gap: 9px;
+  padding: 11px 12px 11px 10px;
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+}
+
+.home-rail-nav::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: 17px;
+  left: 15px;
+  width: 1px;
+  background: rgba(36, 36, 36, 0.16);
+}
+
+.home-rail-nav a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 11px auto;
+  align-items: center;
+  gap: 6px;
+  min-height: 16px;
+  color: rgba(36, 36, 36, 0.36);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  transition: color 0.18s ease;
+}
+
+.home-rail-nav a>span {
+  position: relative;
+  z-index: 1;
+  width: 5px;
+  height: 5px;
+  margin-left: 3px;
+  border-radius: 50%;
+  background: #b8b8b8;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.home-rail-nav a:hover,
+.home-rail-nav a:focus-visible,
+.home-rail-nav a.is-active {
+  color: var(--dark);
+}
+
+.home-rail-nav a:hover>span,
+.home-rail-nav a:focus-visible>span,
+.home-rail-nav a.is-active>span {
+  background: #000;
+}
+
+.home-rail-nav a.is-active>span {
+  transform: scale(1.2);
+}
+
 @keyframes partnership-scroll {
   0% {
     transform: translateX(0);
@@ -1573,9 +1505,23 @@ button {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 2fr 10fr auto;
   gap: 20px;
   color: var(--muted);
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: start;
+  justify-self: end;
+}
+
+.footer-logos img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
 }
 
 .footer-grid strong {
@@ -1604,6 +1550,10 @@ button {
 }
 
 @media (max-width: 1024px) {
+  .home-rail-nav {
+    display: none;
+  }
+
   .header-menu {
     inset: 0 var(--header-inline-padding) 0 calc(var(--header-inline-padding) + 46px);
   }
@@ -2077,18 +2027,6 @@ button {
     font-size: 19px;
   }
 
-  .lab-page-cta {
-    padding: 48px 0;
-  }
-
-  .lab-page-cta-inner {
-    display: block;
-  }
-
-  .lab-page-cta .button-link {
-    margin-top: 22px;
-  }
-
   .profile-detail-grid,
   .publication-row,
   .research-project-row,
@@ -2177,61 +2115,6 @@ button {
     gap: 18px;
   }
 
-  .page-section-nav-wrap {
-    bottom: 10px;
-    left: 50%;
-    width: auto;
-    max-width: calc(100vw - 16px);
-    margin: 0;
-    overflow-x: auto;
-    transform: translateX(-50%);
-  }
-
-  .page-section-nav {
-    display: inline-flex;
-    width: max-content;
-    min-width: 0;
-  }
-
-  .page-section-nav-logo {
-    width: 22px;
-    height: 22px;
-    margin: 0 3px;
-  }
-
-  .page-section-nav a {
-    min-height: 30px;
-    padding: 0 9px;
-    font-size: 10px;
-  }
-
-  .haru-section {
-    padding: 80px 0;
-  }
-
-  .haru-grid {
-    display: block;
-  }
-
-  .haru-device {
-    width: 100%;
-    height: auto;
-    margin-bottom: 32px;
-  }
-
-  .haru-copy {
-    text-align: left;
-  }
-
-  .haru-copy img {
-    width: min(72vw, 320px);
-    margin-bottom: 22px;
-  }
-
-  .haru-copy p {
-    font-size: 14px;
-  }
-
   .cta-section {
     grid-template-columns: 1fr auto;
     gap: 12px;
@@ -2256,7 +2139,21 @@ button {
   }
 
   .footer-grid {
+    position: relative;
     display: block;
+    padding-right: 108px;
+  }
+
+  .footer-logos {
+    position: absolute;
+    top: 0;
+    right: 0;
+    gap: 8px;
+  }
+
+  .footer-logos img {
+    width: 46px;
+    height: 46px;
   }
 
   .footer-grid strong {
