@@ -122,7 +122,8 @@ button {
   display: block;
   width: 25px;
   height: 2px;
-  background: var(--dark);
+  background: var(--brand-color, #fff);
+  transition: background 0.24s ease;
 }
 
 .menu-button b {
@@ -703,8 +704,6 @@ button {
   margin-top: 0;
   max-width: none;
   padding: 38px 34px;
-  border-left: 3px solid var(--dark);
-  background: #fff;
   justify-self: stretch;
 }
 
