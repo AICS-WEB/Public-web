@@ -4,6 +4,10 @@
 
 - 이 리포지터리는 AICS(연구소 또는 조직) 퍼블릭 웹사이트 프론트엔드 소스입니다. React 기반으로 작성되어 있으며, 단일 페이지(홈/섹션) 형태로 구성됩니다.
 
+## 화면 미리보기
+
+![AICS Public Web Screenshot](public/Screenshot.png)
+
 요구사항(Prerequisites)
 
 - Node.js 18 이상 권장
